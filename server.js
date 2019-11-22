@@ -7,16 +7,17 @@ var PORT = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-app.engine("handlebars", exphbs({defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 var routes = require("./controllers/burgers_controllers");
 app.use(routes);
-app.listen(port, function(){
+
+app.listen(port, function () {
     console.log("server listening on: http://localhost:" + PORT);
 });
 

@@ -14,8 +14,12 @@ if (process.env.JAWSDB_URL) {
 }
 
 connection.connect(function (error) {
-    if (error) throw error;
-    console.log(`Connected to the database as ${connection.threadId}`);
+    if (error) {
+        console.error("error connecting: " + error.stack);
+        return;
+
+    }
+    console.log(`Connected as id ${connection.threadId}`);
 });
 
 module.exports = connection;
